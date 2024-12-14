@@ -1,0 +1,13 @@
+
+# This rule does not result in nodejs being fetched and gives us an absolute path that ends with:
+# external/rules_nodejs~~node~nodejs/node_bin (incorrect)
+# The correct path should be:
+# external/rules_nodejs~~node~nodejs_linux_amd64/bin/nodejs/bin/node
+genrule(
+    name = "repository_nodejs",
+    outs = ["repository_nodejs.txt"],
+    cmd = "cat $(execpath @repository_nodejs//:config) >> $(OUTS)",
+    tools = [
+        "@repository_nodejs//:config"
+    ]
+)

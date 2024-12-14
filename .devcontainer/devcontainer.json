@@ -1,0 +1,15 @@
+{
+   "name": "nodejs_mre",
+   "build": { "dockerfile": "Dockerfile" },
+   "remoteUser": "developer",
+   "customizations": {
+      "vscode": {
+         "extensions": [
+            "BazelBuild.vscode-bazel"
+         ]
+      }
+   },
+   "runArgs": [
+      "--network=host"
+   ]
+}
